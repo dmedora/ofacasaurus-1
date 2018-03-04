@@ -9,8 +9,12 @@ const mongoosastic = require('mongoosastic');
 app.use(express.static(__dirname + '/static'));
 app.use('/static', express.static(__dirname + '/static'));
 
-app.listen(8080, "127.0.0.1", () => {
-    console.log("Server has started");
+// app.listen(8080, "127.0.0.1", () => {
+//     console.log("Server has started");
+// });
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
 });
 
 app.get('/', (req, res) => {
